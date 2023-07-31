@@ -35,40 +35,6 @@ public class ProdutoController {
         return;
     }
 
-    //RETIRADA DE ESTOQUE
-    @PutMapping("/{id}")
-    public ResponseEntity<Produto> RetirarEstoque(@PathVariable Long id, @RequestBody Produto produtoAtualizado){
-        Optional<Produto> ProdutoExistenteOptional = repository.findById(id);
 
-        if(!ProdutoExistenteOptional.isPresent()){
-            return ResponseEntity.notFound().build();
-        }
-
-        Produto produtoExistente = ProdutoExistenteOptional.get();
-
-        produtoExistente.setEstoque(produtoExistente.getEstoque() - produtoAtualizado.getEstoque());
-
-        Produto produtoAtualizadoSalvo = repository.save(produtoExistente);
-
-        return ResponseEntity.ok(produtoAtualizadoSalvo);
-    }
-
-    //REPOR ESTOQUE
-    @PutMapping("repor/{id}")
-    public ResponseEntity<Produto> AdicionarEstoque(@PathVariable Long id, @RequestBody Produto produtoAtualizado){
-        Optional<Produto> ProdutoExistenteOptional = repository.findById(id);
-
-        if(!ProdutoExistenteOptional.isPresent()){
-            return ResponseEntity.notFound().build();
-        }
-
-        Produto produtoExistente = ProdutoExistenteOptional.get();
-
-        produtoExistente.setEstoque(produtoExistente.getEstoque() + produtoAtualizado.getEstoque());
-
-        Produto produtoAtualizadoSalvo = repository.save(produtoExistente);
-
-        return ResponseEntity.ok(produtoAtualizadoSalvo);
-    }
 
 }
