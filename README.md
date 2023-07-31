@@ -9,3 +9,5 @@ Cadastro de produtos: Este recurso permite que você crie um banco de dados de p
 Entrada de estoque: Este recurso permite que você registre a entrada de estoque, como quando você recebe uma nova remessa de produtos.
 
 Saída de estoque: Este recurso permite que você registre a saída de estoque, como quando você vende um produto para um cliente.
+
+historico de movimentações: Permite que o cliente visualise todas as transições do estoque
