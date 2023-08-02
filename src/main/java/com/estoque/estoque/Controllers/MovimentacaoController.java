@@ -37,8 +37,12 @@ public class MovimentacaoController {
         if(!ProdutoExistenteOptional.isPresent()){
             return ResponseEntity.notFound().build();
         }
+
+        String id_produto = id.toString();
+
         //salvando o quanto foi retirado
-        Movimentacao movimentacao = new Movimentacao(dados);
+        Movimentacao movimentacao = new Movimentacao(dados, id_produto);
+
         repository.save(movimentacao);
 
         //retirando do estoque a quantidade selecionada
@@ -59,8 +63,9 @@ public class MovimentacaoController {
         if(!ProdutoExistenteOptional.isPresent()){
             return ResponseEntity.notFound().build();
         }
+        String id_produto = id.toString();
 
-        Movimentacao movimentacao = new Movimentacao(dados);
+        Movimentacao movimentacao = new Movimentacao(dados, id_produto);
         repository.save(movimentacao);
 
         Produto produtoExistente = ProdutoExistenteOptional.get();

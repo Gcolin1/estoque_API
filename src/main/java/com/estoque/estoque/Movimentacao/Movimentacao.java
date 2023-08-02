@@ -16,6 +16,7 @@ public class Movimentacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String id_produto;
     private Integer estoque;
     private String destino;
     private String motivo;
@@ -23,7 +24,8 @@ public class Movimentacao {
     private String data;
     private String hora;
 
-    public Movimentacao(dadosCadastroMovimentacaoDTO dados){
+    public Movimentacao(dadosCadastroMovimentacaoDTO dados, String id_produto){
+        this.id_produto = id_produto;
         this.estoque = dados.estoque();
         this.destino = dados.destino();
         this.motivo = dados.motivo();
